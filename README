@@ -1,0 +1,36 @@
+VERSION 1.0
+
+Prerequisites:
+    OS:Linux
+    Python2.7, pip
+       for windows:	
+          +install: pywin32, visual c++ 9.0
+
+    render Javascript:
+      splash (a Javascript rendering service): Docker
+      scrapyjs
+      start splash service
+        sudo docker run -p 8050:8050 scrapinghub/splash
+
+install scrapy:
+    pip install scrapy
+
+Start a scrapy project
+    use cmd moving the specified folder;
+    scrapy startproject projectname.
+create spidername.py under spiders/
+
+add crawling logic in a scrapy spider
+    items.py: define data schema.
+    pipelines.py: process data after fetching.
+    settings.py: define configurations, eg: use proxy.
+    spider: logic.(normally, each website respectively has one spider.)
+
+run spider
+    cd projectname
+    scrapy crawl name
+
+
+Tips:
+When setting SPLASH_URL in settings.py, run $docker-machine ip to get the ip address if using Docker.
+
